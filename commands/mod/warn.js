@@ -17,6 +17,7 @@ module.exports = {
             if(!member) return message.reply("Please mention a valid member of this server");
         
             let reason = args.slice(1).join(' ');
+            let proof = args[1]
             if(!reason) reason = "(No Reason Provided)";
             
             member.send(`You have been warned by <${message.author.username}> for this reason: ${reason}`)
@@ -25,6 +26,7 @@ module.exports = {
             .setTitle("**__Warn Report__**")
             .setDescription(`**<@${member.user.id}> has been warned by <@${message.author.id}>**`)
             .addField(`**Reason:**`, `\`${reason}\``)
+           .addField(`**Proof:**`, `\`${proof}\``)
             .addField(`**Action:**`, `\`Warn\``)
             .addField(`**Moderator:**`, `${message.author}`)
 
